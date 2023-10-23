@@ -1,0 +1,21 @@
+{
+    "name": "Admin Read",
+    "description": "Записная книжка.",
+    "version": "1.0",
+    "manifest_version": 3,
+    "icons": {
+        "16": "icons/smallicon2.png",
+        "32": "icons/smallicon.png",
+        "48": "icons/icon.png",
+        "128": "icons/bigicon.png"
+    },
+    "action": {
+        "default_popup": "index.html"
+    },
+    "content script": [{
+        "matches": ["http://localhost:3000"],
+        "resources": []
+      }],
+    "permissions": ["scripting", "activeTab", "runtime"],
+    "background":["./index.js"]
+}

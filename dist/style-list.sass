@@ -1,0 +1,167 @@
+// Цвет заднего фона листа
+$colorFooterList: #7F5F61
+
+// Цвет листка
+$colorList: #BFA5A6
+    
+//Цвет фона основого поля
+$colorBackgroundText: #745962
+
+// Параметры текста листа
+@mixin paramList()
+    font-size: 14px
+    font-family: monospace
+    color: #531F22
+    letter-spacing: 0.5px
+
+// Хеадер фон, текст
+@mixin headerFon($colorFon: #47353B)
+    background: $colorFon
+    color: #A3848E
+
+//Заголовки аккордеона
+@mixin accordeonRolle()
+    background: #C9ADB6
+    color: #5F2438
+    font-size: 18px
+    border: 1px solid $colorBackgroundText
+
+//Текст заднего фона аккордеона
+@mixin accordionRolleText()
+    background: transparent
+    font-size: 15px
+    color: #C9ADB6
+    align-items: center
+// При наведении на текст заднего фона аккордеона
+@mixin accordionRolleTextHover()
+    background: #6E5960
+    opacity: 70%
+
+// При нажатии на текст заднего фона аккордеона
+@mixin accordionRolleTextActive()
+    background: #C9A3B0
+    opacity: 90%
+
+// Задний фон аккордеона
+@mixin accordeon()
+    background: #5F2438
+    border-bottom: 1px solid #6E5960
+
+.app-box 
+    display: flex
+    justify-content: space-around
+
+.app-box-class
+    display: flex
+    flex-direction: column
+    margin: 0px
+    width: 70%
+
+.app-box-class1
+    display: flex
+    width: 100%
+    justify-content: center
+    text-align: center
+    margin: 0 px
+
+input.open-file::-webkit-file-upload-button
+    @include accordeonRolle
+    border: none
+
+input.open-file
+    @include accordeonRolle
+    margin: 0px
+    padding: 10px 0px
+    margin: 10px 0px
+    cursor: pointer
+
+input.open-file:hover
+    @include accordionRolleTextHover
+
+input.open-file:active
+    @include accordionRolleTextActive
+
+input.open-file::-webkit-file-upload-button:active
+    background: none
+    width: 0px
+
+button.plays
+    @include accordeonRolle
+    margin: 10px 0px
+    width: 15%
+    cursor: pointer
+
+button.plays:hover
+    @include accordionRolleTextHover
+
+button.plays:active
+    @include accordionRolleTextActive
+
+button.click-file
+    @include accordeonRolle
+    margin: 10px 0px
+    width: 15%
+    cursor: pointer
+
+button.click-file:hover
+    @include accordionRolleTextHover
+
+button.click-file:active
+    @include accordionRolleTextActive
+
+a.faq
+    @include accordeonRolle
+    margin: 10px 0px
+    width: 15%
+    text-decoration: none
+
+a.faq:hover
+    @include accordionRolleTextHover
+
+a.faq:active
+    @include accordionRolleTextActive
+
+.app-box-class 
+    background: $colorFooterList
+
+textarea.read-app
+    @include paramList
+    background-color: $colorList
+    box-shadow: 5px 0px 5px $colorFooterList
+    padding: 15px 40px
+    outline: none
+
+.cheking-ui 
+    width: 10%
+    display: flex
+    min-height: 30px
+    color: aqua
+    background: darkgray
+    border-radius: 20px
+    box-shadow: inset 2px 2px 3px rgb(0,0,0.5)
+
+.cheking-ui-chaib
+    background-color: brown
+    width: 70px
+    min-height: 30px
+    position: absolute
+    border-radius: 20px
+    opacity: 50%
+    z-index: 1
+   
+
+.window-assept
+    display: none
+
+button.closet 
+    font-size: 20px
+    background: transparent
+    cursor: pointer
+    color: #531F22
+    border: 2px solid #531F22
+
+p.title-write
+    @include accordionRolleText
+
+p.frar
+    @include accordionRolleText

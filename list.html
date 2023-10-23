@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/socket.io/socket.io.js"></script>
+    <link href="styleWpack.css" rel="stylesheet">
+    <title>Reader</title>
+</head>
+<body>
+    <div class="app">
+        <div class="class-box">
+            <div class="app-box-class1">
+                <input type="file" class="open-file">
+                <button class="plays">Показать</button>
+                <button class="click-file">Отправить</button>
+                <a href="http://localhost:3000/FAQ" class="faq">Как использовать?</a>
+            </div>
+            <div class="app-box">
+                <div class="app-box-class">
+                    <textarea class="read-app" cols="50" rows="20"></textarea>
+                    <button class="add-next-file" style="display: none;">Вернуть в редакцию</button>
+                    <textarea class="prev-app" cols="50" rows="20" disabled style="display: none;"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="window-assept">
+            <div class="homeFile">
+            <button class="closet"> X </button>
+            <div class="cheking-ui">
+                <span class="file-ui">ПК</span>
+                <div class="cheking-ui-chaib"></div>
+                <span class="file-ui">Github</span>
+            </div>
+            <p class="title-write">Файл записывается в папку расширения</p>
+            <input type="text" class="name-assept" placeholder="имя файла с расширением">
+            <button class="write-file">Записать</button>
+            <p class="frar">Проверенные расширения: <strong>*.doc, *.txt</strong></p>
+            </div>
+
+            <div class="gitFile">
+                <div class="autoindificate">
+                    <div class="autodificate-user" style="display: none;">
+                        <p>Пользователь :
+                        <span class="AuserGit"></span>
+                        <p class="public-profile">
+                        <span>Имя :</span>
+                        <span class="names"></span>
+                        <span class="email"></span>
+                        </p>
+                        </p>
+                        <p>Организация :
+                        <span class="Aorganization"></span>
+                        </p>
+
+                        <div class="options-repo">
+                            <select name="repo" class="repository">
+                                <option selected="selected" disabled>Репозитории</option>
+                            </select>
+                            <input type="text" class="commit" placeholder="Коммит">
+                            <input type="text" class="patch-dir" placeholder="Путь к репозиториям (орг/репа*)*">
+                            <input type="text" class="patch" placeholder="Путь к папке репозитория*">
+                            <input type="text" class="shaFile" placeholder="SHA* файла (если обновляем)">
+                            <button class="next-commit">Отправить файл в репозиторий</button>
+                            <button class="prev-commit">Сравнить с предыдущим</button>
+                        </div>
+
+                        <div class="create-repo">
+                            <input type="text" class="name-repo" placeholder="название репозитория">
+                            <input type="text" class="describt-repo" placeholder="описание репозитория">
+                            <select name="types" class="type-repo">
+                                <option selected="selected" disabled>Тип</option>
+                                <option value="private">Приватный</option>
+                                <option value="public">Публичный</option>
+                            </select>
+                            <button class="gitGo">Создать репозиторий</button>
+                        </div>
+                        <nav class="list-commit">
+                        </nav>
+                        <nav class="list-file-repo"></nav>
+                    </div>
+
+
+                    <div class="no-autodificate-user">
+                        <input type="text" class="keyApi" placeholder="Ключ Гит Апи">
+                        <button class="gitIndetificate">Ок</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="./gipAPI.js"></script>
+    <script type="module" src="./gitApiAgent.js"></script>
+    <script type="module" src="./constGitApi.js"></script>
+    <script type="module" src="./pageReadScript.js" class="nones">
+    </script>
+    <script>
+    const socket = io('localhost:3000');
+            socket.on('connect', function() {
+                console.log('Successful connected to server');
+
+            })
+            socket.on('datas', (datas) => {
+                let area = document.querySelector('.read-app');
+                area.value = datas.msg;
+                });
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Что здесь происходит?</title>
+<script defer src="App-mini.js"></script><link href="styleWpack.css" rel="stylesheet"></head>
+<body>
+    <header class="title">
+        <div class="title-who">
+            <img src="http://localhost:3000/icons/bigicon.png" alt="AR" class="title-who-img">
+            <h1 class="title-who-logo">
+                <span class="title-who-logo-span">A</span>dmin<span class="title-who-logo-span">R</span>ead
+            </h1>
+            <div class="title-who-block">
+                <h2 class="title-who-text">
+                    Небольшая утилита парсинга теста с любого сайта
+                </h2>
+                <h3 class="title-who-text2">
+                    Берет текст с сайта, посредством внедрения скрипта JS через расширения Crome. 
+                    Отправляет на локальный сервер. Далее в редакторе (http://localhost:3000) вставляет текст.
+                </h3>
+            </div>
+        </div>
+    </header>
+    <section class="rigtBar">
+        <div class="rigtBar-block">
+        <details class="rigtBar-cromeApps">
+            <summary>Расширение Chrome</summary>
+            <button class="rigtBar-cromeApps-click api-install">Установка</button>
+            <button class="rigtBar-cromeApps-click">Использование</button>
+            <button class="rigtBar-cromeApps-click">Что под капотом?</button>
+        </details>
+        <details class="rigtBar-node">
+            <summary>Локальный сервер</summary>
+            <button class="rigtBar-cromeApps-click">Настройка</button>
+            <button class="rigtBar-cromeApps-click">Использование</button>
+            <button class="rigtBar-cromeApps-click">Что под капотом?</button>
+        </details>
+        <details class="rigtBar-cromeApps">
+            <summary>Редактор текста</summary>
+            <button class="rigtBar-cromeApps-click">Использование</button>
+            <button class="rigtBar-cromeApps-click">Локальное хранение</button>
+            <button class="rigtBar-cromeApps-click">Работа с Github.com</button>
+            <button class="rigtBar-cromeApps-click">Что под капотом?</button>
+        </details>
+    </div>
+    <div class="block-text">
+        <script>
+            document.querySelector('.api-install').addEventListener('click', () => {
+                fetch('http://localhost:3000/listFAQ-instalApi.html').then(async item => {
+                document.querySelector('.block-text').innerHTML = `<div>${await item.text()}</div>`
+            })
+            })
+            
+        </script>
+    </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,99 @@
+// Цвет текста лого
+$colorFullLogo: #D2BDB6
+// Цвет заглавных букв лого
+$colorSpanLogo: #F08080
+//Цвет фона основого поля
+$colorBackgroundText: #745962
+
+// Хеадер фон, текст
+@mixin headerFon($colorFon: #47353B)
+    background: $colorFon
+    color: #A3848E
+
+//Заголовки аккордеона
+@mixin accordeonRolle()
+    background: #C9ADB6
+    color: #5F2438
+    font-size: 18px
+
+//Текст заднего фона аккордеона
+@mixin accordionRolleText()
+    background: transparent
+    font-size: 15px
+    color: #C9ADB6
+    align-items: center
+// При наведении на текст заднего фона аккордеона
+@mixin accordionRolleTextHover()
+    background: #6E5960
+    opacity: 70%
+
+// При нажатии на текст заднего фона аккордеона
+@mixin accordionRolleTextActive()
+    background: #C9A3B0
+    opacity: 90%
+
+// Задний фон аккордеона
+@mixin accordeon()
+    background: #5F2438
+    border-bottom: 1px solid #6E5960
+    
+body
+    background: #57484D
+
+header.title
+    @include headerFon
+
+.title-who 
+    display: flex
+    align-items: center
+    padding: 20px 50px
+
+.title-who-block 
+    display: flex
+    flex-direction: column
+    justify-content: space-evenly
+
+h1.title-who-logo
+    padding: 0px 50px 0px 10px
+    color: $colorFullLogo
+
+span.title-who-logo-span
+    color: $colorSpanLogo
+
+h2.title-who-text
+    padding: 15px
+
+.rigtBar-block 
+    width: 20%
+    margin: 0px
+
+details
+    @include accordeon
+
+summary
+    @include accordeonRolle
+    padding: 15px 10px
+
+button.rigtBar-cromeApps-click 
+    @include accordionRolleText
+    background: transparent
+    border: none
+    padding: 10px 5px
+    font-size: 15px
+    width: 100%
+
+button.rigtBar-cromeApps-click:hover
+    @include accordionRolleTextHover
+
+button.rigtBar-cromeApps-click:active
+    @include accordionRolleTextActive
+
+section.rigtBar 
+    display: flex
+    justify-content: space-between
+
+.block-text
+    width: 80%
+    min-height: 300px
+    background: $colorBackgroundText
+    border-bottom-right-radius: 20px
